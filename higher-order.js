@@ -90,11 +90,8 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 {"owner":"Barry","price":30},{"owner":"Barry","price":129},{"owner":"Barry","price":38},
 {"owner":"Bob","price":133},{"owner":"Barry","price":109},{"owner":"Bob","price":115}]
 
-let bobsTotal = purchases.filter( (e) => {
-	return e.owner === "Bob";
-
-}).map( (e) => {
-  return e.price;
-}).reduce( (sum,cur,ind, []) => {
+let bobsTotal = purchases.map( (e) => {
+  return e.owner === 'Bob' ? e.price : 0 }
+).reduce( (sum,cur) => {
 	return sum + cur;
 })
